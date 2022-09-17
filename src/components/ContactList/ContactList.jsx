@@ -5,7 +5,7 @@ import {
   getContactsOperations,
   removeContactsOperation,
 } from "../../redux/operations";
-import s from "../App.module.scss"
+import s from "./ContactsList.module.scss"
 
 const ContactList = () => {
 
@@ -14,7 +14,7 @@ const ContactList = () => {
 
   useEffect(() => {
     dispatch(getContactsOperations());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function removeContact(id) {
@@ -29,11 +29,11 @@ const ContactList = () => {
           <span className={ s.btnDel }
             onClick={ () => {
               removeContact(id);
-            } }>X</span>
+            } }>Delete</span>
           <span className={ s.name }>
             { name } :
           </span>
-          { phone }
+          <span> { phone }</span>
         </li>
       )) }
     </ul>

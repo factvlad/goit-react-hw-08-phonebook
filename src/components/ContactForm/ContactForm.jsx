@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { postContactsOperations } from "../../redux/operations";
-import s from "../App.module.scss"
 
 function ContactForm() {
   const [state, setState] = useState({
@@ -12,7 +11,6 @@ function ContactForm() {
 
   const dispatch = useDispatch();
   const { name, phone } = state;
-
   const nameId = nanoid();
 
   const handleSubmit = (e) => {
@@ -26,19 +24,16 @@ function ContactForm() {
     );
   };
 
-
   const handleChange = ({ target }) => {
     setState((prevState) => {
       return { ...prevState, [target.name]: target.value };
     });
   };
-
   function addContact(data) {
     dispatch(postContactsOperations(data));
   }
   return (
     <form
-      className={ s.form }
       onSubmit={ handleSubmit }>
       <input
         type="text"
@@ -49,6 +44,7 @@ function ContactForm() {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
         onChange={ handleChange }
+        placeholder="Enter Name"
       />
       <input
         onChange={ handleChange }
@@ -58,6 +54,7 @@ function ContactForm() {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         value={ phone }
         required
+        placeholder="Enter Number"
       />
       <button type="submit">Add Contact</button>
     </form>

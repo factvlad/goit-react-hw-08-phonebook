@@ -1,8 +1,8 @@
-// import s from "../../components/App.module.scss"
-
 const Home = () => {
   return (
+    <div className="container">
     <h2>Home Page</h2>
+    </div>
   );
 }
 

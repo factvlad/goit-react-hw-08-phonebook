@@ -1,4 +1,3 @@
-import s from "../App.module.scss"
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { filterContact } from "../../redux/filter/filter-slice";
@@ -14,10 +13,10 @@ function Filter() {
   return (
     <input
       id={ filterId }
-      className={ s.input }
       type="text"
       name="filter"
       onChange={ handleFilter }
+      placeholder="Filter"
     />
   );
 
