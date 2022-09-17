@@ -1,4 +1,4 @@
-import s from "../../components/App.module.scss"
+// import s from "../../components/App.module.scss"
 
 const Home = () => {
   return (
