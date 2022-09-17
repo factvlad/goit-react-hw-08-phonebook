@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className={ s.container }>
         <main className={ s.main }>
           <Routes >
-            <Route path="/ " element={ <Home /> } />
+            <Route path="/" element={ <Home /> } />
             <Route path="/contacts" element={ <Contacts /> } />
             <Route path="/login" element={ <Login /> } />
             <Route path="/register" element={ <Register /> } />
