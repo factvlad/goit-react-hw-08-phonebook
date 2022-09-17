@@ -40,17 +40,3 @@ const Layout = () => {
 }
 
 export default Layout;
-
-
-//{/* <div className={ s.wrapper }>
-//{/* <Suspense fallback={ <h1>Loading...</h1> }> */ }
-{/* <Routes >
-  <Route path="/" element={ <Navbar /> }>
-    <Route index element={ <Home /> } />
-    <Route path="contacts" element={ <Contacts /> } />
-    <Route path="login" element={ <Login /> } />
-    <Route path="register" element={ <Register /> } />
-  </Route>
-</Routes> */}
-//{/* </Suspense> */ }
-//</div> */}
