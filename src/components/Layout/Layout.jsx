@@ -3,6 +3,7 @@
 // import { Routes, Route } from "react-router-dom";
 // import { Suspense, lazy } from 'react';
 // import { Contacts, Home, Login, Register, Navbar } from "components"
+import {Navbar } from "components"
 import s from "../App.module.scss"
 
 
