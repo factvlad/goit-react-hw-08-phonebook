@@ -1,3 +1,11 @@
 export { default as ContactForm } from './ContactForm/ContactForm';
 export { default as ContactList } from './ContactList/ContactList';
 export { default as Filter } from './Filter/Filter';
+export { default as Login } from "../pages/Login/Login"
+export { default as Contacts } from "../pages/Contacts/Contacts"
+export { default as Register } from "../pages/Register/Register"
+export { default as Home } from "../pages/Home/Home"
+export { default as UserMenu } from "./UserMenu/UserMenu"
+export { default as Navbar } from "./Navbar/Navbar"
+export { default as Layout } from "./Layout/Layout"
+export { default as NotFound } from "./NotFound/NotFound"
