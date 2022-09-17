@@ -2,8 +2,9 @@
 // import { Suspense } from 'react';
 // import { Routes, Route } from "react-router-dom";
 // import { Suspense, lazy } from 'react';
-import { Contacts, Home, Login, Register, Navbar } from "components"
+// import { Contacts, Home, Login, Register, Navbar } from "components"
 import s from "../App.module.scss"
+
 
 // const Home = lazy(() => import('components'));
 // const Login = lazy(() => import('components'));
