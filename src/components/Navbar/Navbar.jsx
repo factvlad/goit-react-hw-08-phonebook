@@ -12,7 +12,7 @@ const Navbar = () => {
     <>
       <header className={ s.header }>
         <nav className={ s.nav }>
-          <NavLink to="/" className={ activeNav }>
+          <NavLink to="/ " className={ activeNav }>
             Home
           </NavLink>
           <NavLink to="/contacts" className={ activeNav }>
