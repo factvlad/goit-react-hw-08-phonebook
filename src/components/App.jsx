@@ -1,10 +1,13 @@
-import { Layout } from "components"
+import { Layout } from 'components';
+import s from "./App.module.scss"
 
 
-const App = () => {
+export const App = () => {
   return (
-    <Layout />
+    <div className={ s.wrapper }>
+      <div className={ s.container }>
+        <Layout />
+      </div>
+    </div>
   );
-}
-
-export default App;
+};

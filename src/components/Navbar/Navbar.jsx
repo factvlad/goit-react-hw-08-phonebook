@@ -1,7 +1,7 @@
 import { Routes, Route, NavLink } from "react-router-dom";
-// import { Outlet } from "react-router-dom";
-import s from "../App.module.scss"
 import { Contacts, Home, Login, Register, NotFound } from "components"
+import s from "../App.module.scss"
+
 
 const Navbar = () => {
   const activeNav = ({ isActive }) => {
@@ -12,7 +12,7 @@ const Navbar = () => {
     <>
       <header className={ s.header }>
         <nav className={ s.nav }>
-          <NavLink to="/" className={ activeNav }>
+          <NavLink to="/" className={ activeNav } end>
             Home
           </NavLink>
           <NavLink to="/contacts" className={ activeNav }>
@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className={ s.container }>
         <main className={ s.main }>
           <Routes >
-            <Route path="/" element={ <Home /> } />
+            <Route path="/ " element={ <Home /> } />
             <Route path="/contacts" element={ <Contacts /> } />
             <Route path="/login" element={ <Login /> } />
             <Route path="/register" element={ <Register /> } />
