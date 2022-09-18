@@ -1,59 +1,37 @@
-import Notiflix from "notiflix";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import * as api from '../../share/api'
 
-import {
-  fetchPostContacts,
-  fetchGetContacts,
-  fetchDeleteContacts,
-} from "../../share/api";
-import {
-  getContacts,
-  removeContacts,
-  postContact,
-} from "./contacts-slice";
-
-const isDuplicate = ({ name }, contacts) => {
-  const normalizedName = name.toLowerCase();
-
-  const result = contacts.find((item) => {
-    return normalizedName === item.name.toLowerCase();
-  });
-
-  return Boolean(result);
-};
-
-export const postContactsOperations = (data) => {
-  return async (dispatch, getState) => {
-    const { contacts } = getState();
-    if (isDuplicate(data, contacts.items)) {
-      return Notiflix.Notify.warning(`${data.name} is already exists`);
-    }
+export const fetchContacts = createAsyncThunk(
+  "contacts/fetch",
+  async (_, thunkAPI) => {
     try {
-      const contact = await fetchPostContacts(data);
-      dispatch(postContact(contact.data));
+      const data = await api.getContacts();
+      return data;
     } catch (error) {
-      console.log(error.message)
+      return thunkAPI.rejectWithValue(error);
     }
-  };
-};
+  }
+)
 
-export const getContactsOperations = () => {
-  return async (dispatch) => {
+export const addContact = createAsyncThunk(
+  "contacts/add",
+  async (data, { rejectWithValue }) => {
     try {
-      const { data } = await fetchGetContacts();
-      dispatch(getContacts(data));
+      const result = await api.addContacts(data);
+      return result;
     } catch (error) {
-      console.log(error.message)
+      return rejectWithValue(error);
     }
-  };
-};
-
-export const removeContactsOperation = (id) => {
-  return async (dispatch) => {
+  }
+)
+export const removeContacts = createAsyncThunk(
+  "contact/remove",
+  async (id, { rejectWithValue }) => {
     try {
-      await fetchDeleteContacts(id);
-      dispatch(removeContacts(id));
+      await api.removeContacts(id);
+      return id;
     } catch (error) {
-      console.log(error.message)
+      return rejectWithValue(error);
     }
-  };
-};
+  }
+)

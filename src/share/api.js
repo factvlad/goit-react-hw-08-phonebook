@@ -1,15 +1,16 @@
-import axios from "axios";
+import { instance } from './user';
 
-axios.defaults.baseURL = "https://631f669222cefb1edc4b2978.mockapi.io";
-
-export const fetchPostContacts = async (contact) => {
-  return await axios.post("/contacts", contact);
+export const getContacts = async () => {
+  const { data } = await instance.get('/contacts');
+  return data;
 };
 
-export const fetchGetContacts = async () => {
-  return await axios.get("/contacts");
+export const addContacts = async data => {
+  const { data: result } = await instance.post('contacts', data);
+  return result;
 };
 
-export const fetchDeleteContacts = async (id) => {
-  return await axios.delete(`/contacts/${id}`);
+export const removeContacts = async id => {
+  const { data: result } = await instance.delete(`contacts/${id}`);
+  return result;
 };

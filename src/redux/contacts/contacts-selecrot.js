@@ -1,1 +1,1 @@
-export const getContacts = store => store.contacts.items
+export const getContacts = store => store.contacts.items.items

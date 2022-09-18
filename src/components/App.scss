@@ -12,7 +12,7 @@
   align-items: center;
   text-align: center;
   height: 100%;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
 }
 
 h2 {
@@ -40,6 +40,7 @@ input {
     }
   }
 }
+
 form {
   display: flex;
   flex-direction: column;

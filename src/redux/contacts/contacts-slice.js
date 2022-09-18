@@ -1,18 +1,53 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchContacts, addContact, removeContacts } from "./operations";
+
+const initialState = {
+  items: [],
+  loading: false,
+  error: null,
+};
 
 export const getContactsSlice = createSlice({
   name: "contacts",
-  initialState: [],
-  reducers: {
-    getContacts: (_, { payload }) => payload,
-    postContact: (state, { payload }) => {
-      state.push(payload);
+  initialState,
+  extraReducers: {
+    [fetchContacts.pending]: (store) => {
+      store.loading = true;
+      store.error = null;
     },
-    removeContacts: (state, { payload }) => {
-      return state.filter((el) => el.id !== payload);
+    [fetchContacts.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.items = payload;
+    },
+    [fetchContacts.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
+    [addContact.pending]: (store) => {
+      store.loading = true;
+      store.error = null;
+    },
+    [addContact.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.items.push(payload);
+    },
+    [addContact.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
+    [removeContacts.pending]: (store) => {
+      store.loading = true;
+      store.error = null;
+    },
+    [removeContacts.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.items = store.items.filter(item => item.id !== payload)
+    },
+    [removeContacts.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
     },
   },
 });
 
-export const { getContacts, postContact, removeContacts } =
-  getContactsSlice.actions;
+export default getContactsSlice.reducer;
