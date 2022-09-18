@@ -11,7 +11,6 @@ const ContactList = () => {
   const dispatch = useDispatch();
   const contactsFilter = useSelector(getFilterContacts);
   const getContactsList = useSelector(getContacts)
-  console.log(contactsFilter, getContactsList)
   const getContactsRender = getContactsList?.filter((el) =>
     el.name.toLowerCase().includes(contactsFilter.toLowerCase()))
 
