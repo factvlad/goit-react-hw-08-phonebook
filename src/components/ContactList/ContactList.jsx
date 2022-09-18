@@ -1,10 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { getFilterContacts } from "../../redux/filter/filter-selectors";
+import { useEffect } from "react";
 import {
   removeContacts
 } from "../../redux/contacts/operations";
-import s from "./ContactsList.module.scss"
 import { getContacts } from "../../redux/contacts/contacts-selecrot"
+import { fetchContacts } from 'redux/contacts/operations';
+import s from "./ContactsList.module.scss"
 
 const ContactList = () => {
 
@@ -14,20 +16,24 @@ const ContactList = () => {
   const getContactsRender = getContactsList?.filter((el) =>
     el.name.toLowerCase().includes(contactsFilter.toLowerCase()))
 
+  useEffect(() => {
+    dispatch(fetchContacts())
+  }, [dispatch])
 
   function removeContact(id) {
     dispatch(removeContacts(id));
   }
   const render = getContactsRender?.map(({ name, number, id }) => (
     <li className={ s.contacts } key={ id }>
-      <span className={ s.btnDel }
-        onClick={ () => {
-          removeContact(id);
-        } }>X</span>
       <span className={ s.name }>
         { name } :
       </span>
-      { number }
+      <span> { number }</span>
+      <span className={ s.btnDel }
+        onClick={ () => {
+          removeContact(id);
+        } }>delete</span>
+
     </li>
   ))
 

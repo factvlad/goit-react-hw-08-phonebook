@@ -1,17 +1,10 @@
 .contacts {
-  font-size: 21px;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  font-size: 17px;
   text-align: left;
-}
-
-.container {
+  width: 300px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-  background-color: #fff;
+  gap: 15px;
+  justify-content: space-between;
 }
 
 .btnDel {
@@ -23,12 +16,12 @@
   color: #fff;
   font-weight: 700;
   cursor: pointer;
-  font-size: 11px;
-  padding: 5px;
+  font-size: 10px;
+  padding: 3px;
   text-align: center;
-  position: absolute;
-  top: 2px;
-  right: -60px;
+  // position: absolute;
+  // top: 2px;
+  right: 0;
   transition: 0.4s;
   &:hover {
     background-color: rgb(15, 15, 201, 0.7);
@@ -38,14 +31,19 @@
 }
 
 .name {
-  margin-right: 20px;
+  margin-right: 12px;
 }
 
 li {
   list-style-type: none;
   position: relative;
+  font-weight: 600;
 }
 
 ul {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 25px;
 }
