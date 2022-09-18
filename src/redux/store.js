@@ -9,12 +9,15 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import authSlice from "./auth/auth-slice"
 
-import { rootReducer } from "./rootReducer";
 
+
+import { rootReducer } from "./rootReducer/rootReducer";
 const persistConfig = {
-  key: "root",
+  key: "token",
   storage,
+  whitelist: ["token"]
 };
 
 const middleware = (getDefaultMiddleware) =>
@@ -24,10 +27,13 @@ const middleware = (getDefaultMiddleware) =>
     },
   });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, authSlice);
 
 export const store = configureStore({
-  reducer: { contacts: persistedReducer },
+  reducer: {
+    auth: persistedReducer,
+    contacts: rootReducer,
+  },
   middleware,
 });
 

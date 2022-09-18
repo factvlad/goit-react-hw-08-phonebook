@@ -8,7 +8,7 @@ const NavbarMenu = () => {
 
   return (
     <>
-      <NavLink to="/" className={ activeNav } end>Home</NavLink>
+      <NavLink to="/" className={ activeNav } >Home</NavLink>
       <NavLink to="/contacts" className={ activeNav }>Contacts</NavLink>
     </>
   );

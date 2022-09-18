@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
-import { postContactsOperations } from "../../redux/operations";
+import { postContactsOperations } from "../../redux/contacts/operations";
 
 function ContactForm() {
   const [state, setState] = useState({

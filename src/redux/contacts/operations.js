@@ -4,13 +4,12 @@ import {
   fetchPostContacts,
   fetchGetContacts,
   fetchDeleteContacts,
-} from "../share/api";
+} from "../../share/api";
 import {
   getContacts,
   removeContacts,
   postContact,
-} from "./contacts/contacts-slice";
-import { setError, resetError } from "./error/error-slice";
+} from "./contacts-slice";
 
 const isDuplicate = ({ name }, contacts) => {
   const normalizedName = name.toLowerCase();
@@ -32,7 +31,7 @@ export const postContactsOperations = (data) => {
       const contact = await fetchPostContacts(data);
       dispatch(postContact(contact.data));
     } catch (error) {
-      dispatch(setError(error.message));
+      console.log(error.message)
     }
   };
 };
@@ -40,11 +39,10 @@ export const postContactsOperations = (data) => {
 export const getContactsOperations = () => {
   return async (dispatch) => {
     try {
-      dispatch(resetError(null));
       const { data } = await fetchGetContacts();
       dispatch(getContacts(data));
     } catch (error) {
-      dispatch(setError(error.message));
+      console.log(error.message)
     }
   };
 };
@@ -55,7 +53,7 @@ export const removeContactsOperation = (id) => {
       await fetchDeleteContacts(id);
       dispatch(removeContacts(id));
     } catch (error) {
-      dispatch(setError(error.message));
+      console.log(error.message)
     }
   };
 };

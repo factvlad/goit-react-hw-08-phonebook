@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import { nanoid } from "@reduxjs/toolkit";
-
 
 const RegisterForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const nameId = nanoid();
 
   const hendleInputChange = event => {
     const { name, value } = event.currentTarget;
@@ -33,6 +30,7 @@ const RegisterForm = ({ onSubmit }) => {
       email,
       password,
     };
+
     onSubmit(dataUser);
     resetForm();
   };
@@ -47,22 +45,17 @@ const RegisterForm = ({ onSubmit }) => {
     <form
       onSubmit={ hendleSubmit }>
       <input
+        onChange={ hendleInputChange }
         type="text"
-        id={ nameId }
         name="name"
         value={ name }
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
-        onChange={ hendleInputChange }
         placeholder="Enter your Name"
       />
       <input
         onChange={ hendleInputChange }
         type="email"
         name="email"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         value={ email }
         required
         placeholder="Enter your Email"
@@ -71,9 +64,8 @@ const RegisterForm = ({ onSubmit }) => {
         onChange={ hendleInputChange }
         type="password"
         name="password"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         value={ password }
+        minLength="7"
         required
         placeholder="Enter your Password"
       />

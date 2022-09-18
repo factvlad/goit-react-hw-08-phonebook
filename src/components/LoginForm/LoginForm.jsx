@@ -47,8 +47,6 @@ const LoginForm = ({ onSubmit }) => {
         onChange={ hendleInputChange }
         type="email"
         name="email"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         value={ email }
         required
         placeholder="Enter your Email"
@@ -57,9 +55,8 @@ const LoginForm = ({ onSubmit }) => {
         onChange={ hendleInputChange }
         type="password"
         name="password"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         value={ password }
+        minLength="7"
         required
         placeholder="Enter your Password"
       />
