@@ -5,6 +5,7 @@ import { Navbar } from "components";
 import UserRoutes from "./UserRouters";
 import s from "./App.scss"
 import { getLoading } from "redux/auth/auth-selectors";
+import Loader from "./Loader/Loader"
 
 
 export const App = () => {
@@ -16,7 +17,7 @@ export const App = () => {
   }, [dispatch])
 
   if (loadingTrue) {
-    return <p>...Loading</p>
+    return <Loader className={s.loader}/>
   }
 
   return (

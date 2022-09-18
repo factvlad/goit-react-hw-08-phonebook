@@ -1,7 +1,7 @@
 const Home = () => {
   return (
     <div className="container">
-    <h2>Home Page</h2>
+    <h2>LogIn and create your ContactList</h2>
     </div>
   );
 }
