@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { getFilterContacts } from "../../redux/filter/filter-selectors";
 import { useEffect } from "react";
+import { getFilterContacts } from "../../redux/filter/filter-selectors";
 import {
   removeContacts
 } from "../../redux/contacts/operations";
@@ -37,10 +37,16 @@ const ContactList = () => {
     </li>
   ))
 
+
+
+
+
   return (
-    <ul className={ s.contacts }>
-      { render }
-    </ul>
+
+      <ul className={ s.contacts }>
+        { render }
+      </ul>
+
   );
 };
 

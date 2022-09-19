@@ -5,6 +5,11 @@
   display: flex;
   gap: 15px;
   justify-content: space-between;
+  svg {
+    position: relative;
+    left: 100px;
+  }
+
 }
 
 .btnDel {
@@ -47,3 +52,4 @@ ul {
   flex-wrap: wrap;
   margin-top: 25px;
 }
+

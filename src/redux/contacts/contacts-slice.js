@@ -4,6 +4,7 @@ import { fetchContacts, addContact, removeContacts } from "./operations";
 const initialState = {
   items: [],
   loading: false,
+  isLoading: false,
   error: null,
 };
 
@@ -14,14 +15,17 @@ export const getContactsSlice = createSlice({
     [fetchContacts.pending]: (store) => {
       store.loading = true;
       store.error = null;
+      store.isLoading = true
     },
     [fetchContacts.fulfilled]: (store, { payload }) => {
       store.loading = false;
       store.items = payload;
+      store.isLoading = false
     },
     [fetchContacts.rejected]: (store, { payload }) => {
       store.loading = false;
       store.error = payload;
+      store.isLoading = false
     },
     [addContact.pending]: (store) => {
       store.loading = true;
